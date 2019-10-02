@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>one page scroll</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: dimgray;
+    }
+    .wrapper{
+        width:1180px;
+        height: 4500px;
+        background-color: greenyellow;
+        position: relative;
+        margin: 0 auto;
+        font-family: "HelveticaNeueLT Std", Arial, monospace;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        padding-top: 50px;
+    }
+    nav{
+        width:1160px;
+        height: 100px;
+        background-color: darkorchid;
+        margin: 0 auto;
+    }
+    #section-1, #section-3, #section-5{
+        width:1160px;
+        height: 800px;
+        background-color: deepskyblue;
+        margin: 0 auto;
+    }
+    #section-2, #section-4{
+        width:1160px;
+        height: 800px;
+        background-color: deeppink;
+        margin: 0 auto;
+    }
+    p#nav-sec-1, p#nav-sec-2,p#nav-sec-3,p#nav-sec-4,p#nav-sec-5{
+        display: inline;
+        font-size: 24px;
+        font-family: "HelveticaNeueLT Std", arial, sans-serif;
+        font-weight: bold;
+        padding: 0 25px;
+    }
+    a:link{
+        text-decoration: none;
+        color: ghostwhite;
+    }
+    a:visited{
+        text-decoration: none;
+        color: darkblue;
+    }
+    a:hover{
+        text-decoration: none;
+        color: yellow;
+        cursor: grabbing;
+    }
+    a:active{
+        text-decoration: none;
+        color: red;
+    }
+    a:link{
+        text-decoration: none;
+        color: ghostwhite;
+    }
+</style>
+<body>
+<div id="top"></div>
+<div class="wrapper">
+
+  <nav>
+      <a href="#section-1"><p id="nav-sec-1">section one</p></a>
+      <!--bookmark tag?-->
+      <a href="#section-2"><p id="nav-sec-2">section two</p></a>
+      <a href="#section-3"><p id="nav-sec-3">section three</p></a>
+      <a href="#section-4"><p id="nav-sec-4">section four</p></a>
+      <a href="#section-5"><p id="nav-sec-5">section five</p></a>
+
+  </nav>
+
+    <section>
+        <p id="section-1">SECTION 1</p>
+    </section>
+
+    <section>
+        <p id="section-2">SECTION 2</p>
+    </section>
+
+    <section>
+        <p id="section-3">SECTION 3</p>
+    </section>
+
+    <section>
+        <p id="section-4">SECTION 4</p>
+    </section>
+
+    <section>
+        <p id="section-5">SECTION 5</p>
+    </section>
+    <a href="#top"><p class="scroll"> scroll to top</p></a>
+
+</div>
+<!-- end of wrapper -->
+
+
+
+<script>
+    $(document).ready(function(){
+// Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+
+// Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+// Prevent default anchor click behavior
+                event.preventDefault();
+
+// Store hash
+                var hash = this.hash;
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+
+</body>
+</html>
